@@ -1,0 +1,27 @@
+.row
+  .span9
+    .page-header
+      h1
+        = @post.title
+        small.pull-right= timeago @post.created_at
+    = @post.body
+
+    br
+    br
+    br
+    br
+
+    h2 
+      ' Comments
+      small= "(#{@post.comments.count})"
+    = render @comments
+    
+    - if user_signed_in?
+      = render :partial => "comments/form"
+
+
+  .span3.activities-sidebar
+    h3 Post's activity
+
+    - for activity in @activities
+      = render_activity(activity, :layout => "layouts/activity_wrapper")

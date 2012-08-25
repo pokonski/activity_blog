@@ -1,0 +1,6 @@
+- content_for :header, "News feed"
+
+- for activity in @activities
+  = render_activity(activity, :layout => "layouts/activity_wrapper")
+
+

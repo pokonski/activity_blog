@@ -1,0 +1,4 @@
+= simple_form_for [@post, @comment] do |f|
+  = f.input :comment, label: false
+  .form-actions
+    = f.button :submit, class: 'btn-success pull-right'

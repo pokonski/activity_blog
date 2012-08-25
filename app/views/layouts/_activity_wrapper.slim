@@ -1,0 +1,10 @@
+.activity
+  .body
+    .title
+      =' a.owner.nickname
+      =' content_for :action
+      =' timeago a.created_at
+    .details
+      .avatar
+        = image_tag a.owner.avatar_url, width: "30", height: "30"
+      = yield

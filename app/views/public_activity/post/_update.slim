@@ -1,0 +1,5 @@
+- single_content_for :action do
+  | edited 
+  = link_to (a.trackable.author == current_user ? "your post" : "a post"), a.trackable
+
+= p[:summary]

@@ -1,0 +1,12 @@
+.row
+  .activity.post
+    .body
+      h2
+        =' link_to post.title, post
+        small.pull-right= timeago post.created_at
+      .details
+        .avatar
+          = image_tag post.author.avatar_url, width: "30", height: "30", title: post.author.nickname
+        div= post.body
+        div.pull-right
+          = link_to "Comments (#{post.comments.count})", post

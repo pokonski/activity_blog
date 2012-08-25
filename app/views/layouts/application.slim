@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+  title PublicActivity Blog
+  = stylesheet_link_tag    "application", :media => "all"
+  = javascript_include_tag "application"
+  = csrf_meta_tags
+body
+  .container
+    .row
+      .span12
+        - if content_for? :header
+          .page-header
+            h1= content_for :header
+        - if notice
+          .alert.alert-success= notice
+        - if alert
+          .alert.alert-error= alert            
+        = yield
+
+.navbar.navbar-fixed-top
+  .navbar-inner
+    .container
+        ul.nav
+          li= link_to "Posts", root_path
+          li= link_to "News feed", feed_path          
+          li= link_to "Your actions", your_actions_path
+        ul.nav.pull-right
+          - if user_signed_in?
+            li= link_to current_user.nickname, blog_path(current_user)
+            li= link_to "Sign out", destroy_user_session_path, method: :delete
+          - else
+            li= link_to "Sign in with Github", omniauth_authorize_path(:user, :github)
