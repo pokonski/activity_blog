@@ -8,7 +8,7 @@ gem 'omniauth-github'
 gem 'mysql2'
 gem 'slim'
 gem 'simple_form'
-gem 'public_activity', :path => "~/projekty/public_activity"
+gem 'public_activity', '~> 0.4.0'
 gem 'kaminari'
 gem 'acts_as_commentable', '2.0.1'
 

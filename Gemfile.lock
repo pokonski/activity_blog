@@ -1,12 +1,3 @@
-PATH
-  remote: ~/projekty/public_activity
-  specs:
-    public_activity (0.4.0)
-      actionpack (>= 3.0.0)
-      activerecord (>= 3.0.0)
-      activesupport (>= 3.0.0)
-      i18n (>= 0.5.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -102,6 +93,11 @@ GEM
       omniauth (~> 1.0)
     orm_adapter (0.4.0)
     polyglot (0.3.3)
+    public_activity (0.4.1)
+      actionpack (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      i18n (>= 0.5.0)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -166,7 +162,7 @@ DEPENDENCIES
   less
   mysql2
   omniauth-github
-  public_activity!
+  public_activity (~> 0.4.0)
   rails
   simple_form
   slim
