@@ -1,5 +1,5 @@
 class ActivitiesController < ApplicationController
-
+  layout false, only: :show
   before_filter :authenticate_user!, only: :yours
 
   def feed
@@ -18,6 +18,13 @@ class ActivitiesController < ApplicationController
     end
   end
 
+  def show
+    @activity = PublicActivity::Activity.find(params[:id])
+
+    respond_to do |format|
+      format.html
+    end
+  end
 
 
 end

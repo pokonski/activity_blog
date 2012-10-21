@@ -18,4 +18,24 @@
 
 $(function() {
   $("abbr.timeago").timeago();
+
+  // We use the same API key provided in config/pusher.yml
+  var socket = new Pusher('<%= Pusher.key %>');
+  var channel = socket.subscribe('public_activity');
+  channel.bind('new-activity',
+      function(data) {
+        var feed = $('#activity-feed');
+        if (feed.length > 0){
+          $.ajax({
+            url: feed.data("fetchUrl"),
+            data: {id: data.activity_id},
+            success: function(htmlData) {
+              feed.prepend(htmlData).children(":first").hide().slideDown();
+              feed.find("abbr.timeago").timeago();
+            }
+          });
+        }
+      }
+  );
 });
+

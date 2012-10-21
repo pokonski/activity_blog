@@ -1,5 +1,6 @@
 - single_content_for :action do
-  | edited 
-  = link_to (a.trackable.author == current_user ? "your post" : "a post"), a.trackable
+  ' edited
+  =' whose?(a.owner, a.trackable)
+  = link_to_trackable a.trackable, a.trackable_type
 
 = p[:summary]

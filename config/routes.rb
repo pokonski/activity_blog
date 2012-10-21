@@ -6,10 +6,13 @@ ActivityBlog::Application.routes.draw do
     resources :comments, only: [:create, :update, :edit, :destroy]
   end
 
+
   get "/feed" => "activities#feed", as: :feed
+  get "/feed/fetch" => "activities#show", as: :fetch_activity
+
   get "/yours" => "activities#yours", as: :your_actions
 
-  get "/:slug" => "posts#blog", as: :blog
+  get "/:nickname" => "users#show", as: :user
 
   root :to => "posts#index"
 end

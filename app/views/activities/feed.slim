@@ -1,5 +1,6 @@
 - content_for :header, "News feed"
 
+#activity-feed data-fetch-url=fetch_activity_path
 - for activity in @activities
   = render_activity(activity, :layout => "layouts/activity_wrapper")
 

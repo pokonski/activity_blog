@@ -3,6 +3,7 @@ html
   head
   title PublicActivity Blog
   = stylesheet_link_tag    "application", :media => "all"
+  = javascript_include_tag "http://js.pusher.com/1.12/pusher.min.js"
   = javascript_include_tag "application"
   = csrf_meta_tags
 body
@@ -17,7 +18,20 @@ body
         - if alert
           .alert.alert-error= alert            
         = yield
-
+  .footer
+    .container
+      =' link_to "Plus", "http://thenounproject.com/noun/plus/#icon-No2876", target: "_blank"
+      ' designed by
+      =' link_to  "P.J. Onori", "http://thenounproject.com/somerandomdude", target: "_blank"
+      | from The Noun Project
+      br
+      =' link_to "Pencil", "http://thenounproject.com/noun/pencil/#icon-No347", target: "_blank"
+      | from The Noun Project
+      br
+      =' link_to "Trash Can", "http://thenounproject.com/noun/trash-can/#icon-No5700", target: "_blank"
+      ' designed by
+      =' link_to "Maximilian Becker", "http://thenounproject.com/AchtSieben", target: "_blank"
+      | from The Noun Project
 .navbar.navbar-fixed-top
   .navbar-inner
     .container
@@ -27,7 +41,7 @@ body
           li= link_to "Your actions", your_actions_path
         ul.nav.pull-right
           - if user_signed_in?
-            li= link_to current_user.nickname, blog_path(current_user)
+            li= link_to current_user.nickname, user_path(current_user)
             li= link_to "Sign out", destroy_user_session_path, method: :delete
           - else
             li= link_to "Sign in with Github", omniauth_authorize_path(:user, :github)

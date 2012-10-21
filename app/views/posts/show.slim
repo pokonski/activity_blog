@@ -6,6 +6,9 @@
         small.pull-right= timeago @post.created_at
     = @post.body
 
+    hr
+    - if @post.author == current_user
+      = link_to "Remove this post", @post, method: :delete
     br
     br
     br

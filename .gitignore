@@ -14,5 +14,6 @@
 /log/*.log
 /tmp
 
-# Ignore github secret key
+# Ignore secret configs
 /config/github.yml
+/config/pusher.yml
