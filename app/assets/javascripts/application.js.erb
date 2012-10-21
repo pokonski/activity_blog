@@ -26,8 +26,12 @@ $(function() {
       function(data) {
         var feed = $('#activity-feed');
         if (feed.length > 0){
+          /*
+            Retrieve the HTML of activity using the activity_id we
+            received from Pusher notification.
+           */
           $.ajax({
-            url: feed.data("fetchUrl"),
+            url: feed.data("fetchUrl"), // data attribute containing the path we send the request to
             data: {id: data.activity_id},
             success: function(htmlData) {
               feed.prepend(htmlData).children(":first").hide().slideDown();
