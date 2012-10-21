@@ -210,7 +210,12 @@ Devise.setup do |config|
   if File.exists? config_path
     github = YAML.load(File.read(config_path))
   end
-  config.omniauth :github, (ENV["GITHUB_CLIENT_ID"] || github["client_id"]), (ENV["GITHUB_CLIENT_SECRET"] || github["client_secret"]), :scope => 'user'
+  if Rails.env == "production"
+    options = {:scope => 'user', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
+  else
+    options = {:scope => 'user'}
+  end
+  config.omniauth :github, (ENV["GITHUB_CLIENT_ID"] || github["client_id"]), (ENV["GITHUB_CLIENT_SECRET"] || github["client_secret"]), options
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
