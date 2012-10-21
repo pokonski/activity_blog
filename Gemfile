@@ -1,11 +1,13 @@
 source 'https://rubygems.org'
 
+gem 'pg'
 gem 'rails'
 gem 'journey'
 gem 'arel'
 gem 'devise'
 gem 'omniauth-github'
-gem 'mysql2'
+gem 'pusher'
+gem 'jquery-rails'
 gem 'slim'
 gem 'simple_form'
 gem 'public_activity', '~> 0.4.0'
@@ -22,5 +24,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'pusher'
-gem 'jquery-rails'
+group :development do
+  gem 'mysql2'
+end
+
