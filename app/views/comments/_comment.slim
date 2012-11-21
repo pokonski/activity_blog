@@ -4,6 +4,6 @@
       =' timeago comment.created_at, class: "timeago pull-right"
     .details
       .avatar
-        = image_tag comment.user.avatar_url, width: "30", height: "30"
+        = image_tag comment.user.avatar_url, width: "30", height: "30", title: comment.user.nickname
 
       = comment.comment
