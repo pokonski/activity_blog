@@ -11,7 +11,7 @@ gem 'pusher'
 gem 'jquery-rails'
 gem 'slim'
 gem 'simple_form'
-gem 'public_activity', '~> 0.4.0'
+gem 'public_activity', '~> 0.5.0'
 gem 'kaminari'
 gem 'acts_as_commentable', '2.0.1'
 
@@ -19,6 +19,7 @@ gem 'acts_as_commentable', '2.0.1'
 # in production environments by default.
 group :assets do
   gem 'therubyracer'
+  gem 'libv8', '~> 3.11.8'
   gem 'less'
   gem 'coffee-rails'
   gem 'less'
