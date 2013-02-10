@@ -11,7 +11,7 @@ gem 'pusher'
 gem 'jquery-rails'
 gem 'slim'
 gem 'simple_form'
-gem 'public_activity', '~> 0.5.0'
+gem 'public_activity', '~> 1.0.0'
 gem 'kaminari'
 gem 'acts_as_commentable', '2.0.1'
 
@@ -28,5 +28,5 @@ end
 
 group :development do
   gem 'mysql2'
+  gem 'better_errors'
 end
-
