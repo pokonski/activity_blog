@@ -22,7 +22,6 @@ group :assets do
   gem 'libv8', '~> 3.11.8'
   gem 'less'
   gem 'coffee-rails'
-  gem 'less'
   gem 'uglifier', '>= 1.0.3'
 end
 
